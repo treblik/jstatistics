@@ -1,4 +1,4 @@
-import java.util.Scanner;
+//import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
@@ -8,7 +8,7 @@ public class App {
 
 
        
-        Scanner leia = new Scanner(System.in);
+       //Scanner leia = new Scanner(System.in);
 
         // Variável : é um espaço reservado na memória do computador
         // variavel serve para guardar valores
