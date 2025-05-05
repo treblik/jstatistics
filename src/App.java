@@ -29,7 +29,7 @@ public class App {
                 default:
                 JOptionPane.showMessageDialog(null,"Opção invalida digite de 1 a 3"); break;
             }
-            sair = JOptionPane.showInputDialog(null, args,"Sair s ou n");
+            sair = JOptionPane.showInputDialog(null, "Sair sim ou não ");
         }while (!sair.equalsIgnoreCase("sim") );
        
     
