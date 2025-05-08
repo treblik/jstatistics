@@ -95,6 +95,9 @@ public class App {
         double totoLancamento = contImpar + contPar;
         double probabilidadePar = (contImpar/totoLancamento) *100;
         double probabilidadeImpar =(contPar/totoLancamento) *100;
+
+        double numPrimo;
+
         
         // Exibe o resumo final
         String resumo = "Fim do programa!\n\n" +
