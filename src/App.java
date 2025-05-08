@@ -63,7 +63,7 @@ public class App {
         Random random = new Random();
         int contPar = 0;
         int contImpar = 0;
-        String resposta;
+        //String resposta;
 
         String mensagemInicial = "Espaço amostral: {1, 2, 3, 4, 5, 6}\n" +
                                  "Probabilidade de número par: 50%\n" +
@@ -82,8 +82,8 @@ public class App {
                 contImpar++;
             }
 
-           // double probabilidadePar = (3/6)*100;
-           // double probabilidadeMenor3 =(2/6)*100;
+           
+            
             // Mostra resultado do lançamento
             JOptionPane.showMessageDialog(null, "Você lançou o dado e saiu: " + resultado +
                                                 "\n" + (resultado % 2 == 0 ? "PAR" : "ÍMPAR"));
@@ -92,13 +92,14 @@ public class App {
             escolha = JOptionPane.showConfirmDialog(null, "Deseja lançar o dado novamente?", 
                                                     "Continuar", JOptionPane.YES_NO_OPTION);
         }
-
+        double probabilidadePar = (3/6) *100;
+        double probabilidadeMenor3 =(2/6) *100;
         // Exibe o resumo final
         String resumo = "Fim do programa!\n\n" +
                         "Total de lançamentos:\n" +
                         "- Números pares: " + contPar + "\n" +
-                        //"- Probabilidade Par: " + probabilidadePar + "\n" +
-                        //"- Probabilidade Menor 3 " + probabilidadeMenor3 + "\n" +
+                        "- Probabilidade Par: " + probabilidadePar +"%"+ "\n" +
+                        "- Probabilidade Menor 3 " + probabilidadeMenor3 +"%"+ "\n" +
                         "- Números ímpares: " + contImpar;
 
         JOptionPane.showMessageDialog(null, resumo, "Resumo", JOptionPane.INFORMATION_MESSAGE);
