@@ -92,14 +92,16 @@ public class App {
             escolha = JOptionPane.showConfirmDialog(null, "Deseja lançar o dado novamente?", 
                                                     "Continuar", JOptionPane.YES_NO_OPTION);
         }
-        double probabilidadePar = (3/6) *100;
-        double probabilidadeMenor3 =(2/6) *100;
+        double totoLancamento = contImpar + contPar;
+        double probabilidadePar = (contImpar/totoLancamento) *100;
+        double probabilidadeImpar =(contPar/totoLancamento) *100;
+        
         // Exibe o resumo final
         String resumo = "Fim do programa!\n\n" +
                         "Total de lançamentos:\n" +
                         "- Números pares: " + contPar + "\n" +
                         "- Probabilidade Par: " + probabilidadePar +"%"+ "\n" +
-                        "- Probabilidade Menor 3 " + probabilidadeMenor3 +"%"+ "\n" +
+                        "- Probabilidade Impar  " + probabilidadeImpar +"%"+ "\n" +
                         "- Números ímpares: " + contImpar;
 
         JOptionPane.showMessageDialog(null, resumo, "Resumo", JOptionPane.INFORMATION_MESSAGE);
