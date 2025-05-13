@@ -6,7 +6,12 @@ import javax.swing.JOptionPane;
 public class JardimApp {
 
 	public static void main(String[] args) {
-		String nome;
+		int totalJardins = 0;
+        double somaAreas = 0;
+        int continuar;
+
+        do{
+        String nome;
 		String endereco;
 		JOptionPane.showMessageDialog(null, "Olá Jardim");
 		nome = JOptionPane.showInputDialog("Digite o seu nome:");
@@ -24,100 +29,71 @@ public class JardimApp {
 	        JOptionPane.showMessageDialog(null, "A área do jardim é: " + area + " metros quadrados.");
 	        
 	        if(area >100) {
-	        	JOptionPane.showMessageDialog(null, "Jarim é Grande");
+	        	JOptionPane.showMessageDialog(null, "Jardim é Grande");
 	        }else {
 				JOptionPane.showMessageDialog(null, "Jardim é pequeno");
 			}
-	        
+	        somaAreas += area;
+            totalJardins ++;
+
+           
+            continuar = JOptionPane.showConfirmDialog(null, "Deseja calcular outro jardim?", "Continuar", JOptionPane.YES_NO_OPTION);
+
 	        //####################################################################
-	        
-	        /* ArrayList<String> servicosEscolhidos = new ArrayList<>();
-	        
-	        int escolha;
-	        
-	        do {
-				String inputString = JOptionPane.showInputDialog(null,"Escolha um serviço:\n" +
-                        "1 - Poda de plantas e árvores\n" +
-                        "2 - Aplicação de adubos e nutrientes\n" +
-                        "3 - Instalação e manutenção da irrigação\n" +
-                        "4 - Projeto paisagístico personalizado\n" +
-                        "0 - Sair",
-                "Seleção de Serviços",
-                JOptionPane.showMessageDialog(null, "Opção inválida.", "Erro", JOptionPane.ERROR_MESSAGE);
-					break; 
-			} while (condition);
-	        
-	        if (InputContext ==null) {//usuario clicou em cancelar
-	        	escolha =0;
-	        }else {
-	        	try {
-	        		escolha =Integer.parseInt(input);
-				} catch (Exception e) {
-					 JOptionPane.showMessageDialog(null, "Entrada inválida. Digite um número.", "Erro", JOptionPane.ERROR_MESSAGE);
-	                    escolha = -1; // Valor inválido para continuar o loop
-				}
-	        }
-	        
-	        switch (escolha) {
-			case 1: {
-				servicosEscolhidos.add("Poda de planta e arvores");
-				JOptionPane.showMessageDialog(null, "Serviço de pode de arvore adicionado.");
-				break;
-			}
-			case 2: {
-				servicosEscolhidos.add("Aplicação de adubos e nutrientes");
-				JOptionPane.showMessageDialog(null, "Aplicação de adubos e nutrientes adicionado.");
-				break;
-			}
-			case 3: {
-				servicosEscolhidos.add("Instalação e manutenção da irrigação.");
-				JOptionPane.showMessageDialog(null, "Serviço de Instalação e manutenção da irrigação adicionado. ");
-				break;
-			}
-			case 4: {
-				servicosEscolhidos.add("Projeto paisagístico personalizado");
-				JOptionPane.showMessageDialog(null, "Serviço de Projeto paisagístico personalizado ");
-				break;
-			}
-			case 0:{
-				JOptionPane.showMessageDialog(null, "Saindo da aplicação");
-				break;
-			}
-			default:
-				if(escolha!=-1) {
-					JOptionPane.showMessageDialog(null, "Opção inválida.", "Erro", JOptionPane.ERROR_MESSAGE);
-					break;
-				}
-			}while (escolha != 0);*/
+        }while (continuar == JOptionPane.YES_OPTION);
+
+
+        if (totalJardins > 0){
+            double mediaAreas = somaAreas /totalJardins;
+            JOptionPane.showConfirmDialog(null,"A média das areas dos Jardins"+totalJardins+"jardins é"+mediaAreas +"metros quadrados");
+        }else{
+            JOptionPane.showMessageDialog(null,"Nenhum jardim foi registrado");
+        }
+    
+
+
+
+
+
+	       
 
 
             //aqui começa o switch
-	        String tipoString = JOptionPane.showInputDialog("Digite o tipo de serviço \n1 Poda - \n2 - Adubação \n3 Irrigação \n4 - Paisagismo ");
-	        int tipo=Integer.parseInt(tipoString);
-	        String descricaoString;
-	        
-	        switch (tipo) {
-			case 1:
-				descricaoString="Poda de plantas e arvores";
-				
-				break;
-			case 2:
-				descricaoString="Aplicação de adubos e nutrientes";
-				break;
-			case 3:
-				descricaoString="Instalação e manutenção da irrigação";
-				break;
-			case 4:
-				descricaoString="Projeto paisagistico personalizado";
-				break;
-			default:
-				
-				descricaoString="Tipo de serviço não comtemplado";
-				break;
-			}
-	        JOptionPane.showMessageDialog(null,"Serviço solicitado"+ descricaoString);
-	        
-	        
+           
+             
+            int tipo;     
+
+do {
+   
+    String tipoString = JOptionPane.showInputDialog("Digite o tipo de serviço \n1 - Poda \n2 - Adubação \n3 - Irrigação \n4 - Paisagismo \n0 - Sair");
+    tipo = Integer.parseInt(tipoString);
+    String servicoEscolhido;
+
+    switch (tipo) {
+        case 1:
+        servicoEscolhido = "Poda de plantas e árvores";
+            break;
+        case 2:
+        servicoEscolhido = "Aplicação de adubos e nutrientes";
+            break;
+        case 3:
+        servicoEscolhido = "Instalação e manutenção da irrigação";
+            break;
+        case 4:
+        servicoEscolhido = "Projeto paisagístico personalizado";
+            break;
+        case 0:
+        servicoEscolhido = "Saindo";
+           
+        default:
+        servicoEscolhido = "Tipo de serviço não contemplado";
+            break;
+    }
+
+    JOptionPane.showMessageDialog(null, "Serviço solicitado: " + servicoEscolhido);
+} while (tipo != 0);
+
+        
 	        
 	        //##################################################
 	        // desconto por quantidade de serv
